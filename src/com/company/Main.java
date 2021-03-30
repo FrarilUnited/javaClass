@@ -112,9 +112,9 @@ public class Main {
         System.out.println(" 8 | 7 = "+ bitwiseOr);
         System.out.println(" 7 & 8 = "+ bitwiseXor);
         System.out.println(" ~8 = "+ bitwiseNot);
-        System.out.println(" 7 & 8 = "+ bitwiseZeroFillLeftShift);
-        System.out.println(" 8 & 7 = "+ bitwiseSignedRightShift);
-        System.out.println(" 7 & 8 = "+ bitwiseZeroFillRightShift);
+        System.out.println(" 7 << 8 = "+ bitwiseZeroFillLeftShift);
+        System.out.println(" 8 >> 7 = "+ bitwiseSignedRightShift);
+        System.out.println(" 7 >>> 8 = "+ bitwiseZeroFillRightShift);
         System.out.println();
 
         //3. if-Else Conditional Statement
@@ -149,6 +149,9 @@ public class Main {
             System.out.println("Please enter a number and will find its summation:");
             int desiredNum = s.nextInt();
             computeSum(desiredNum);
+
+        //6. Do While Loop
+
     }
 
 public static void weekdayNumber() {
