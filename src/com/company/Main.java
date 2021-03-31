@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+            Scanner keyboard = new Scanner(System.in);
+
         //1.a.i Widening Casting
 
         System.out.println("Widening Casting");
@@ -33,7 +35,7 @@ public class Main {
         System.out.println("Arithmetic Operators");
         System.out.println();
         System.out.println("Addition 8 + 8 = " + (8 + 8));
-        System.out.println("Subtraction 8 - 8 = " + (8 - 8));
+        System.out.println("Subtraction 8 - 8 = " + (9 - 8));
         System.out.println("Multiplication 8 * 8 = " + (8 * 8));
         System.out.println("Division 8 / 8 = " +  (8 / 8));
         System.out.println("Modulo 9 % 8 = " + (9 % 8));
@@ -48,13 +50,13 @@ public class Main {
         int subEqual = equal -=2;
         int mulEqual = equal *= 2;
         int divEqual = equal /=2;
-        int modEqual = equal %= 2;
+        int modEqual = equal % 2;
         System.out.println("equal value is 9");
         System.out.println("equal +=2 is " + addEqual);
         System.out.println("equal -=2 is " + subEqual);
         System.out.println("equal *=2 is " + mulEqual);
         System.out.println("equal /=2 is " + divEqual);
-        System.out.println("equal &=2 is " + modEqual);
+        System.out.println("equal % 2 is " + modEqual);
         System.out.println();
 
         //2.Comparison Operator
@@ -145,10 +147,33 @@ public class Main {
         System.out.println();
 
         //5.c. Write a method with a while loop that computes the sum of first n positive integers:
-            Scanner s = new Scanner(System.in);
             System.out.println("Please enter a number and will find its summation:");
-            int desiredNum = s.nextInt();
+            int desiredNum = keyboard.nextInt();
             computeSum(desiredNum);
+
+        //6. Do While Loops
+        // Write a method with a do-while loop that generates an array of the first n even numbers.
+
+            doWhileLoops();
+        // 7. For Loops
+        // Write a method with a for-loop that generates the first n numbers in the Fibonacci sequence.
+
+        System.out.println("Please enter a number to execute a Fibonacci Sequence:");
+        int numFibonacci = keyboard.nextInt();
+        forLoopFibonacci(numFibonacci);
+
+        /* 8.Group Exercises: Loop
+         Create a dynamic sentence with the following instructions.
+         1. Create a method that generates names of your boy friends randomly.
+         2. Create a method that generates names of your girl friends randomly.
+         3. Create a method that generates types of relationships randomly.
+         4. Display a sentence using the methods from a,b,c. */
+            String gen1 = boyFGen();
+            String gen2 = girlFGen();
+            String gen3 = relFGen();
+
+            System.out.println(gen1 + " " + gen3 + " " + gen2);
+
     }
 
 public static void weekdayNumber() {
@@ -243,5 +268,62 @@ public static void computeSum(int desiredNum){
     System.out.println("The summation of "+ desiredNum + " is " + summation);
 
 }
+
+public  static void doWhileLoops(){
+
+        int [] arrayOfNumbers = {88, 2, 5,-2, 4, 6, 8, 10, 11, 13, 19, 20};
+        int i = 0;
+        System.out.println("The even numbers of the array are:");
+        do{
+
+            if( arrayOfNumbers[i] % 2 == 0){
+                System.out.println(arrayOfNumbers[i]);
+            }
+            i++;
+        }while (i < arrayOfNumbers.length);
+}
+
+public static void forLoopFibonacci(int userNum){
+
+        int n1 = 0, n2 = 1, i = 0;
+        System.out.println("The Fibonacci Sequence of " + userNum + ":");
+        for(i = 0; i < userNum; i++){
+            System.out.println(n1);
+
+            int sum = n1 + n2;
+            n1 = n2;
+            n2 = sum;
+    }
+
+}
+
+public static String boyFGen(){
+        String [] boyNames = {"John", "Rhuds", "Kevin", "Lando", "Joe", "Kyrie", "Anthony",
+                "James", "Niel", "RJ"};
+        int randomNum = (int)(Math.random()*boyNames.length);
+        String boyName = boyNames[randomNum];
+
+        return boyName;
+}
+
+public static String girlFGen(){
+    String [] girlNames = {"April", "Mae", "Roxanne", "Phoebe", "Zaire", "Jamaica", "Venezuela",
+            " Maria louie", "Ellysa", "Jhoana"};
+    int randomNum = (int)(Math.random()*girlNames.length);
+    String girlName = girlNames[randomNum];
+
+    return girlName;
+}
+
+public static String relFGen(){
+    String [] relationships = {"loves", "wants to be friend with", "always spend time", "likes to work with",
+            "hates", "always mad at", "always play with", "is happy to cook with", "can learn a lot from",
+            "Teaches homework to"};
+    int randomNum = (int)(Math.random()*relationships.length);
+    String relationship = relationships[randomNum];
+
+    return relationship;
+}
+
 
 }
